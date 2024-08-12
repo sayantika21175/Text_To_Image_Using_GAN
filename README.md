@@ -26,8 +26,8 @@ Oxford-102 Category Flower Dataset which are publicly available. There are 102 f
      * Append each embedding values to get final embedding of the entire Sentence
      * So this is of size 300
      * Store the embeddings into binary (.npy format) file
-  * Create train dataset with the images and the caption embeddings
-**Defining the Generator and Discriminator**
+  * Create train dataset with the images and the caption embeddings.
+# Defining the Generator and Discriminator**
   * Used ADAM optimizer in both Generator and Discriminator
   * It is observed that leaky relu works better compare to relu in GAN
   * Used strides instead of MAXPooling. because it is proven that strides give better result than MaxPooling
