@@ -14,20 +14,20 @@ The approach is to train a deep convolutional generative adversarial network (**
 
 # DataSet:
 Oxford-102 Category Flower Dataset which are publicly available. There are 102 flower categories in the 102 Category Flower Dataset. Flowers that are often found in the United Kingdom were chosen. There are between 40 and 258 images in each class. The images are big in scale, with a variety of poses and lighting. There are other categories with a lot of variety within them, as well as some categories that are fairly similar.
-Used Glove Embedding here with embedding size 300
-One dictionary is made with the words and the corresponding embeddings from the file glove.6B.300d.txt
-Processed each image file (Resize each image into 64*64 and normalize the pixel values into [-1,1] 
-Store the processed images into binary file (.npy format) for easy computation and reload
-Processed the caption 
-  * For each captions it takes only the first line
-  * For each word in the first line it finds the embedding value from the glove embedding model
-  * Append each embedding values to get final embedding of the entire Sentence
-  * So this is of size 300
-  * Store the embeddings into binary (.npy format) file
-Create train dataset with the images and the caption embeddings
-Defining the Generator and Discriminator
 
 # Data Modelling:
+  * Used Glove Embedding here with embedding size 300
+  * One dictionary is made with the words and the corresponding embeddings from the file glove.6B.300d.txt
+  * Processed each image file (Resize each image into 64*64 and normalize the pixel values into [-1,1] 
+  * Store the processed images into binary file (.npy format) for easy computation and reload
+  * Processed the caption 
+     * For each captions it takes only the first line
+     * For each word in the first line it finds the embedding value from the glove embedding model
+     * Append each embedding values to get final embedding of the entire Sentence
+     * So this is of size 300
+     * Store the embeddings into binary (.npy format) file
+  * Create train dataset with the images and the caption embeddings
+**Defining the Generator and Discriminator**
   * Used ADAM optimizer in both Generator and Discriminator
   * It is observed that leaky relu works better compare to relu in GAN
   * Used strides instead of MAXPooling. because it is proven that strides give better result than MaxPooling
