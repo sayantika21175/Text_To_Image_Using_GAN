@@ -55,5 +55,12 @@ Oxford-102 Category Flower Dataset which are publicly available. There are 102 f
   * Input: “this flower is yellow in color with oval shaped petals”
   * Output:Executed 300 epochs and getting this image
     ![image](https://github.com/user-attachments/assets/1d9e1770-f62f-4075-a635-a6d1eb54e770)
-
+    
+# References:
+ [1] Scott Reed, Zeynep Akata, Xinchen Yan,Lajanugen Logeswaran Bernt Schiele, Honglak Lee, “Generative Adversarial Text to Image Synthesis”.
+ [2] Bowen Li, Xiaojuan Qi, Thomas Lukasiewicz, Philip H. S. Torr “Controllable Text-to-Image Generation”.
+ [3] Zhiqiang Zhang† , Jinjia Zhou,Wenxin Yu†, Ning Jiang “DRAWGAN: TEXT TO IMAGE SYNTHESIS WITH DRAWING GENERATIVE ADVERSARIAL NETWORKS”
+ [4] Tingting Qiao1,3, Jing Zhang2,3,*, Duanqing Xu1,*, and Dacheng Tao3 “MirrorGAN: Learning Text-to-image Generation by Redescription”
+ [5] Akanksha Singh,Ritika Shenoy,Sonam Anekar,Prof. Sainath Patil “Text to Image using Deep Learning”
+ [6] Dong, Hao, et al. "I2t2i: Learning text to image synthesis with textual data augmentation." 2017 IEEE international conference on image processing (ICIP). IEEE, 2017
 
