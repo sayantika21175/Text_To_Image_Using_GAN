@@ -50,5 +50,10 @@ Oxford-102 Category Flower Dataset which are publicly available. There are 102 f
    * Sigmoid activation function is used.
    * Here we provide real images with caption embeddings, real images with fake caption embeddings and the generated images by generator with real caption embeddings and train the discriminator
     real and fake that have pixel values in the same range.
+
 # Test with any text and get the generated image
+  * Input: “this flower is yellow in color with oval shaped petals”
+  * Output:Executed 300 epochs and getting the below image
+    ![image](https://github.com/user-attachments/assets/1d9e1770-f62f-4075-a635-a6d1eb54e770)
+
 
