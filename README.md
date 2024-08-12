@@ -1,1 +1,49 @@
 # Text_To_Image_Using_GAN
+
+# What is GAN:
+GAN is made up of two competing neural organization models that compete to observe, catch, and repeat the variations within a dataset known as Generator and Discriminator. The goal is to turn word descriptions into relevant images. 
+# DrawBack:
+One drawback is that there are numerous possible configurations for a sentence. There is no bijection between pictures and sentences since an image may be described in a variety of ways and a sentence can be translated into a variety of visuals. For example, in the sentence ‘Some boys are playing’, the number of boys is not defined, similarly which sport they are playing and many other details are uncertain.
+# What we have done here
+We translate text in the form of single-sentence human-written descriptions straight into picture pixels. For visual comprehension of the text, this project is generating images from a given textual description.
+The approach is to train a deep convolutional generative adversarial network (**DC-GAN**).
+![image](https://github.com/user-attachments/assets/ae6860d8-8f63-43be-a4e6-aa7e3eaf7f9d)
+
+![image](https://github.com/user-attachments/assets/256a8817-9a60-4cc8-a199-834641fcd2d8)
+
+
+# DataSet:
+Oxford-102 Category Flower Dataset which are publicly available. There are 102 flower categories in the 102 Category Flower Dataset. Flowers that are often found in the United Kingdom were chosen. There are between 40 and 258 images in each class. The images are big in scale, with a variety of poses and lighting. There are other categories with a lot of variety within them, as well as some categories that are fairly similar.
+Used Glove Embedding here with embedding size 300
+One dictionary is made with the words and the corresponding embeddings from the file glove.6B.300d.txt
+Processed each image file (Resize each image into 64*64 and normalize the pixel values into [-1,1] 
+Store the processed images into binary file (.npy format) for easy computation and reload
+Processed the caption 
+  * For each captions it takes only the first line
+  * For each word in the first line it finds the embedding value from the glove embedding model
+  * Append each embedding values to get final embedding of the entire Sentence
+  * So this is of size 300
+  * Store the embeddings into binary (.npy format) file
+Create train dataset with the images and the caption embeddings
+Defining the Generator and Discriminator
+
+# Data Modelling:
+  * Used ADAM optimizer in both Generator and Discriminator
+  * It is observed that leaky relu works better compare to relu in GAN
+  * Used strides instead of MAXPooling. because it is proven that strides give better result than MaxPooling
+  * It is recommended to use hyperabolic tangent activation function at the output of generator model.
+  * It is also recommended that the real images used to train the discriminator are scaled so that their pixel values are in the range [-1,1].This is so that the discriminator will always receive images as input, 
+    real and fake that have pixel values in the same range.
+  * The best practice is to update the discriminitor with seperate batches of real and fake images rather than combining real and fake images into a single batch
+  * Con2D_transpose upsamples the image.
+  * We provide the noise in Generator and generator gives one image which is provided to the Discriminator.
+  * It is Experimentally Proven that in the first Dense layer the no of nurons will be the product of the output image shape: example if the output image shape is 32*32*3 then no of nurons should be either (32*32 
+    or 16*16 or 8*8 or 4*4) it is experimentally found that it is better to start with (4*4).
+  * Then upsample it. We took 256 features to get all the features from the small image.
+  * IN Generator tanh Activation function is used.
+  * In Discriminator sigmoid activation function is used.
+  * In generator we send the caption embeddings and random seeds to generate a random embeddings by combining these two and train the generator
+  * in Discriminator we send real images with caption embeddings, real images with fake caption embeddings and the generated images by generator with real caption embeddings and train the discriminator
+
+# Test with any text and get the generated image
+
