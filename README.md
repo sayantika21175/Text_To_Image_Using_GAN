@@ -37,8 +37,7 @@ Oxford-102 Category Flower Dataset which are publicly available. There are 102 f
   * The best practice is to update the discriminitor with seperate batches of real and fake images rather than combining real and fake images into a single batch
   * Con2D_transpose upsamples the image.
   * We provide the noise in Generator and generator gives one image which is provided to the Discriminator.
-  * It is Experimentally Proven that in the first Dense layer the no of nurons will be the product of the output image shape: example if the output image shape is 32*32*3 then no of nurons should be either (32*32 
-    or 16*16 or 8*8 or 4*4) it is experimentally found that it is better to start with (4*4).
+  * It is Experimentally Proven that in the first Dense layer the no of nurons will be the product of the output image shape: example if the output image shape is (32*32*3) then no of nurons should be either ((32*32) or (16*16) or (8*8) or (4*4)) it is experimentally found that it is better to start with (4*4).
   * Then upsample it. We took 256 features to get all the features from the small image.
   * IN Generator tanh Activation function is used.
   * In Discriminator sigmoid activation function is used.
